@@ -1,0 +1,10 @@
+hooks:
+  build:
+    cmd: |
+      export FLASK_APP=flaskr
+      pip3 install -e .
+    
+daemons:
+  app:
+    run:
+       cmd: 'python3 -m flask run'
