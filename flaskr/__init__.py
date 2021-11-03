@@ -1,16 +1,22 @@
+"""Template app with a single /ping route, configured with MySQL."""
+
 import os
 
+from datetime import datetime
+
+from flaskext.mysql import MySQL
+
 from flask import (
-    Flask, render_template
+    Flask, jsonify, request
 )
 
 def create_app(test_config=None):
     """Create and configure an instance of the Flask application."""
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        # a default secret that should be overridden by instance config
-        SECRET_KEY="dev",
-    )
+    app.config.from_object('config.Config')
+
+    mysql = MySQL()
+    mysql.init_app(app)
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -25,8 +31,11 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route("/")
-    def index():
-        return render_template('base.html')
+    @app.route('/ping')
+    def ping():
+        return jsonify(
+            ping=request.args.get('ping'),
+            received_at=datetime.utcnow(),
+        )
 
     return app
