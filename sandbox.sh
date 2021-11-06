@@ -6,3 +6,4 @@
 
 pip3 install -e .
 pip3 install flask-mysql
+pip3 install flask-cors

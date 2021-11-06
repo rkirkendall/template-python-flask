@@ -10,10 +10,13 @@ from flask import (
     Flask, jsonify, request
 )
 
+from flask_cors import CORS
+
 def create_app(test_config=None):
     """Create and configure an instance of the Flask application."""
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_object('config.Config')
+    CORS(app)
 
     mysql = MySQL()
     mysql.init_app(app)
