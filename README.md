@@ -1,6 +1,6 @@
 # Python/Flask with MySQL template for Crafting Sandbox
 
-This is a Python/[Flask](https://flask.palletsprojects.com/en/2.0.x/) with MySQL template, configured for quick development setup in [Crafting Sandbox](https://docs.sandboxes.cloud/docs).
+This is a Python/[Flask](https://flask.palletsprojects.com/en/2.1.x/) with MySQL template, configured for quick development setup in [Crafting Sandbox](https://docs.sandboxes.cloud/docs).
 
 ## Specifications
 
