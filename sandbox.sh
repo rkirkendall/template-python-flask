@@ -4,4 +4,4 @@
 # Configure sandbox for quick workspace setup.
 # ============================================
 
-pip3 install -r requirements.txt
+pip3 install --break-system-packages -r requirements.txt
